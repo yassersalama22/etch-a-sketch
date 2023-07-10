@@ -20,6 +20,11 @@ function createDrawingGrid(parentElementId, size) {
         return;
     }
 
+    // clear the grid before start creating a new one!
+    while(parentElement.hasChildNodes()){
+        parentElement.removeChild(parentElement.firstChild);
+    }
+
     for (let index = 0; index < Math.pow(size, 2); index++) {
         const sketchDiv = document.createElement("div");
         sketchDiv.style.width = gridWidthInPixels / size + "px";
@@ -29,6 +34,16 @@ function createDrawingGrid(parentElementId, size) {
     }
 }
 
-function sketchDivMouseOverHandler(){
+function sketchDivMouseOverHandler() {
     this.style.background = "orange";
+}
+
+function gridSizePrompt() {
+    let size = prompt("Please enter grid size (between 4 and 100)");
+    while(isNaN(size) || size===null || (Number(size)< 4 || Number(size) > 100))
+    {
+        size = prompt("Please enter grid size (between 4 and 100)");
+    }
+
+    createDrawingGrid("container",Number(size),)
 }

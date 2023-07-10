@@ -7,3 +7,15 @@
     border-style: groove;
     border-color: gray;
 }
+
+.grid-size {
+    background-color: #e7e7e7; 
+    color: black;
+    border:none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
