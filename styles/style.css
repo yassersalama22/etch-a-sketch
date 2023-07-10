@@ -1,0 +1,9 @@
+.drawing-area {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 600px;
+    height: 600px;
+    border-style: groove;
+    border-color: gray;
+}
