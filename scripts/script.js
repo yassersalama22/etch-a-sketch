@@ -5,6 +5,8 @@ const gridStepValue = 1;
 const gridWidthInPixels = 600;
 const gridHeightInPixels = 600;
 
+let isMouseDownOverGrid = false;
+
 const gridSizeSelector = document.getElementById("gridSizeRangeSelector");
 const rangeSelectedValue = document.getElementById("rangeSelectedValue");
 
@@ -41,12 +43,16 @@ function createDrawingGrid(parentElementId, size) {
         sketchDiv.style.width = gridWidthInPixels / size + "px";
         sketchDiv.style.height = gridHeightInPixels / size + "px";
         sketchDiv.addEventListener("mouseover",sketchDivMouseOverHandler);
+        sketchDiv.addEventListener("mousedown",()=> isMouseDownOverGrid = true);
+        sketchDiv.addEventListener("mouseup",()=> isMouseDownOverGrid = false);
         parentElement.appendChild(sketchDiv);
     }
 }
 
-function sketchDivMouseOverHandler() {
-    this.style.background = randomRgbColor();
+function sketchDivMouseOverHandler(event) {
+    if(isMouseDownOverGrid){
+        this.style.background = randomRgbColor();
+    }
 }
 
 function randomInteger(max) {
