@@ -13,6 +13,8 @@ gridSizeSelector.setAttribute("max",maximumGridSize);
 gridSizeSelector.setAttribute("value",defaultGridSize);
 gridSizeSelector.setAttribute("step",gridStepValue);
 
+rangeSelectedValue.innerText = defaultGridSize;
+
 createDrawingGrid("container", defaultGridSize);
 
 function createDrawingGrid(parentElementId, size) {
