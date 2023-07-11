@@ -1,8 +1,17 @@
 const defaultGridSize = 16;
 const minimumGridSize = 4;
 const maximumGridSize = 100;
+const gridStepValue = 1;
 const gridWidthInPixels = 600;
 const gridHeightInPixels = 600;
+
+const gridSizeSelector = document.getElementById("gridSizeRangeSelector");
+const rangeSelectedValue = document.getElementById("rangeSelectedValue");
+
+gridSizeSelector.setAttribute("min",minimumGridSize);
+gridSizeSelector.setAttribute("max",maximumGridSize);
+gridSizeSelector.setAttribute("value",defaultGridSize);
+gridSizeSelector.setAttribute("step",gridStepValue);
 
 createDrawingGrid("container", defaultGridSize);
 
@@ -38,16 +47,6 @@ function sketchDivMouseOverHandler() {
     this.style.background = randomRgbColor();
 }
 
-function gridSizePrompt() {
-    let size = prompt("Please enter grid size (between 4 and 100)");
-    while(isNaN(size) || size===null || (Number(size)< 4 || Number(size) > 100))
-    {
-        size = prompt("Please enter grid size (between 4 and 100)");
-    }
-
-    createDrawingGrid("container",Number(size),)
-}
-
 function randomInteger(max) {
     return Math.floor(Math.random()*(max + 1));
 }
@@ -58,3 +57,12 @@ function randomRgbColor() {
     let b = randomInteger(255);
     return `rgb(${r},${g},${b})`;
 }
+
+
+gridSizeSelector.addEventListener("change",(event)=>{
+    createDrawingGrid("container",event.target.value);
+    rangeSelectedValue.innerText = event.target.value;
+});
+gridSizeSelector.addEventListener("input",(event)=>{
+    rangeSelectedValue.innerText = event.target.value;
+});

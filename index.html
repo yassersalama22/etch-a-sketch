@@ -8,8 +8,11 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div id="user-settings">
-        <button class="grid-size" onclick="gridSizePrompt()">Set Grid Size</button>
+    <div id="user-settings" class="user-settings">
+        <label>Select grid size:</label>
+        <input id="gridSizeRangeSelector" type="range">
+        <label id="rangeSelectedValue"></label>
+        <!-- <button class="grid-size" onclick="gridSizePrompt()">Set Grid Size</button> -->
     </div>
     <div id="container" class="drawing-area">
     </div>
